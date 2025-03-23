@@ -1,0 +1,68 @@
+[tool.poetry]
+name = "agent-assistant"
+version = "0.1.0"
+description = ""
+authors = ["gang.liu"]
+readme = "README.md"
+
+[tool.poetry.dependencies] # 定义项目的依赖关系
+python = "^3.12"
+fastapi = "^0.115.11"
+fastcrud = "^0.15.6"
+sqlmodel = "^0.0.24"
+openai = "^1.68.2"
+aiosqlite = "^0.21.0"
+greenlet = "^3.1.1"
+python-jose = "^3.4.0"
+bcrypt = "^4.3.0"
+uvicorn = "^0.34.0"
+langchain-postgres = "^0.0.13"
+langchain-openai = "^0.3.11"
+langchain = "^0.3.21"
+langchain-core = "^0.3.49"
+langchain-community = "^0.3.20"
+langgraph = "^0.3.20"
+aiohttp = "^3.11.14"
+pandas = "^2.2.3"
+psycopg = "^3.2.6" # pg
+psycopg-binary = "^3.2.6"
+modelscope = "^1.24.1" # 依赖 https://github.com/modelscope/modelscope/blob/master/requirements/framework.txt
+addict = "^2.4.0"
+setuptools = "69.5.1"
+datasets = "3.2.0"
+torch = "^2.6.0"
+pillow = "^11.1.0"
+simplejson = "^3.20.1"
+sortedcontainers = "^2.4.0"
+transformers = "^4.50.3"
+pydantic = "^2.11.2"
+psycopg-pool = "^3.2.6"
+accelerate = "^1.6.0"
+unstructured = {extras = ["md"], version = "^0.17.2"}
+nltk = "^3.9.1"
+
+
+[build-system] # 定义构建系统的配置
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+include = ["src"]
+exclude = ["**/node_modules",
+    "**/__pycache__",
+    "src/experimental",
+    "src/typestubs"
+]
+ignore = ["src/oldstuff"]
+defineConstant = { DEBUG = true }
+stubPath = "src/stubs"
+
+reportMissingImports = "error"
+reportMissingTypeStubs = false
+
+pythonVersion = "3.12"
+pythonPlatform = "Linux"
+
+executionEnvironments = [
+  { root = "app" }
+]
